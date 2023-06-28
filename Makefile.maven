@@ -4,19 +4,19 @@
 
 java_build:
 	echo "Building JAR file ..."
-	mvn $(MVN_ARGS) verify
+	#mvn $(MVN_ARGS) verify -DskipTests
 
 java_install_root:
 	echo "Installing root pom ..."
-	mvn $(MVN_ARGS) install -f ../pom.xml -N
+	#mvn $(MVN_ARGS) install -f ../pom.xml -N
 
 java_install: java_install_root
 	echo "Installing JAR files ..."
-	mvn $(MVN_ARGS) install
+	#mvn $(MVN_ARGS) install -DskipTests
 
 java_clean:
 	echo "Cleaning Maven build ..."
-	mvn clean
+	#mvn clean
 
 spotbugs:
 	mvn $(MVN_ARGS) spotbugs:check

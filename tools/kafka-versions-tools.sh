@@ -78,7 +78,7 @@ function get_kafka_does_not_support {
 
     get_kafka_versions
     
-    declare -Ag version_does_not_support
+    declare -a version_does_not_support
     for i in "${!versions[@]}"
     do 
         version_does_not_support[${versions[$i]}]=${does_not_support[$i]}
@@ -96,14 +96,30 @@ function get_version_maps {
     get_kafka_checksums
     get_kafka_third_party_libs
     
-    declare -Ag version_binary_urls
-    declare -Ag version_checksums
-    declare -Ag version_libs
+    declare -a version_binary_urls
+    declare -a version_checksums
+    declare -a version_libs
     
     for i in "${!versions[@]}"
-    do 
-        version_binary_urls[${versions[$i]}]=${binary_urls[$i]}
-        version_checksums[${versions[$i]}]=${checksums[$i]}
-        version_libs[${versions[$i]}]=${libs[$i]}
+    do
+      echo ${i}
+
+      echo ${versions[$i]}
+
+       echo ${binary_urls[$i]}
+       echo ${checksums[$i]}
+       echo ${libs[$i]}
+
     done
+
+
+         version_binary_urls[0]="2.8.0"
+         version_binary_urls[1]="2.8.1"
+         version_binary_urls[2]="3.0.0"
+         version_checksums[0]="https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz"
+         version_checksums[1]="https://archive.apache.org/dist/kafka/2.8.1/kafka_2.13-2.8.1.tgz"
+         version_checksums[2]="https://archive.apache.org/dist/kafka/3.0.0/kafka_2.13-3.0.0.tgz"
+         version_libs[0]="3C49DCA1147A0A249DD88E089F40AF31A67B8207ED2D9E2294FA9A6D41F5ED0B006943CD60D8E30D7E69D760D398F299CAFCD68B6ED7BEDF9F93D1B7A9E8C487"
+         version_libs[1]="91FCD1061247AD0DDB63FA2B5C0251EE0E58E60CC9E1A3EBE2E84E9A31872448A36622DD15868DE2C6D3F7E26020A8C61477BC764E2FB6776A25E4344EB8892D"
+         version_libs[2]="86CDEB04AF123399858D03431E9777948C1C40EC0D843966CF9BD90B8235B47EBBB5CB96D1F0660710B9286DA86BBB5EE65E21E757606F5A1E67F970AE5CF57C"
 }

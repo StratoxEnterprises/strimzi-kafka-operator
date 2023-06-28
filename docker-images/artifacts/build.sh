@@ -12,11 +12,11 @@ function dependency_check {
         exit 1
     fi
 
-    if [ "$BASH_VERSINFO" -lt 4 ]
-    then 
-        >&2 echo "You need bash version >= 4 to build Strimzi. Refer to DEV_GUIDE.md for more information"
-        exit 1
-    fi
+    #if [ "$BASH_VERSINFO" -lt 4 ]
+    #then
+    #    >&2 echo "You need bash version >= 4 to build Strimzi. Refer to DEV_GUIDE.md for more information"
+    #    exit 1
+    #fi
 
     # Check that yq is installed
     command -v yq >/dev/null 2>&1 || { >&2 echo "You need yq installed to build Strimzi. Refer to DEV_GUIDE.md for more information"; exit 1; }

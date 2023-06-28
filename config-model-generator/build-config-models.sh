@@ -21,6 +21,6 @@ then
         "-Dconfig-model-file=../cluster-operator/src/main/resources/kafka-${version}-config-model.json"
     done
 else
-    # Clean up the last version in the file?
+    # Clean up the last /build-config-models.shyqversion in the file?
     mvn ${MVN_ARGS} "-Pgenerate-model" clean "-Dkafka-metadata-version=${versions[-1]}"
 fi
